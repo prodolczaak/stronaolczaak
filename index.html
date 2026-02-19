@@ -4,89 +4,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prod. Olczaak | Music Producer</title>
+    <title>prod. Olczaak | Official Site</title>
     <meta name="description"
         content="Official website of prod. Olczaak. Music Producer. Business inquiries and contact information.">
-    <!-- Modern typography -->
+    <!-- Ultra Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Animated background elements for premium feel -->
-    <div class="background-elements">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-    </div>
 
-    <main class="container">
-        <!-- Main content wrapped in a glassmorphism card -->
-        <div class="glass-card" id="contact-card">
-            <header>
-                <h1 class="title">prod. Olczaak</h1>
-                <p class="subtitle">Music Producer</p>
-            </header>
+    <main class="split-layout">
 
-            <div class="links">
-                <!-- Email contact button -->
-                <a href="mailto:prodolczaak@prodolczaak.site" class="btn email-btn">
+        <!-- Left Side: Cinematic Video Showcase -->
+        <section class="cinematic-side">
+            <div class="video-wrapper">
+                <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+                    <source src="ssstik.io_@prodolczaak_1771540475142.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button id="videoMuteBtn" class="video-mute-btn" data-tooltip="Unmute Video">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon">
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        class="icon-muted">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
                     </svg>
-                    prodolczaak@prodolczaak.site
-                </a>
-
-                <!-- Instagram contact button -->
-                <a href="https://www.instagram.com/olczaakwraahprod/" target="_blank" rel="noopener noreferrer"
-                    class="btn ig-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        class="icon-unmuted hidden">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     </svg>
-                    @olczaakwraahprod
-                </a>
+                </button>
             </div>
 
-            <p class="beats-description">Here are 3 beats fully made by myself</p>
-
-            <div class="beats-section">
-                <!-- Beat 1: H0LY -->
-                <div class="beat-player">
-                    <span class="beat-title">H0LY</span>
-                    <audio controls controlsList="nodownload">
-                        <source src="beats/158 D#min H0LY @Olczaak.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-
-                <!-- Beat 2: NADE -->
-                <div class="beat-player">
-                    <span class="beat-title">NADE</span>
-                    <audio controls controlsList="nodownload">
-                        <source src="beats/D#min 154 NADE @Olczaak.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-
-                <!-- Beat 3: EV!L -->
-                <div class="beat-player">
-                    <span class="beat-title">EV!L</span>
-                    <audio controls controlsList="nodownload">
-                        <source src="beats/EV!L 147 E MIN @OLCZAAK.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
+            <div class="brand-massive">
+                <h1>PROD.<br><span class="accent-text">OLCZAAK</span></h1>
+                <p class="tagline">MUSIC PRODUCER <span class="dot">•</span> SOUND DESIGN</p>
             </div>
-        </div>
+        </section>
+
+        <!-- Right Side: Content & Interaction -->
+        <section class="content-side">
+            <div class="content-wrapper">
+
+                <!-- Social Dock -->
+                <div class="social-dock">
+                    <p class="section-label">LET'S CONNECT</p>
+                    <div class="dock-links">
+                        <a href="#" class="dock-btn email-dock" data-tooltip="Copy Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/olczaakwraahprod/" target="_blank" rel="noopener noreferrer"
+                            class="dock-btn ig-dock" data-tooltip="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://www.beatstars.com/olczaakwraah" target="_blank" rel="noopener noreferrer"
+                            class="dock-btn beatstars-dock" data-tooltip="BeatStars">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="m17.217 11.996-3.308 1.079v3.478l-2.052-2.818-3.309 1.079 2.043-2.818-2.043-2.819 3.31 1.08 2.05-2.819v3.487zm0 0v7.277H6.854V4.584h10.363v7.412l4.585-1.49v-7.67L19.135 0H2.198v24h16.92l2.684-2.685v-7.83z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@prodolczaak" target="_blank" rel="noopener noreferrer"
+                            class="dock-btn tiktok-dock" data-tooltip="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@prodbyolczaak" target="_blank" rel="noopener noreferrer"
+                            class="dock-btn yt-dock" data-tooltip="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.46-5.58z">
+                                </path>
+                                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Beats Interface -->
+                <div class="beats-interface">
+                    <div class="interface-header">
+                        <p class="section-label">MY ORIGINAL PRODUCTIONS</p>
+                        <div class="status-indicator">
+                            <span class="pulse"></span> LIVE
+                        </div>
+                    </div>
+
+                    <div class="beats-list">
+                        <!-- Beat 1 -->
+                        <div class="beat-strip">
+                            <div class="beat-strip-content">
+                                <div class="beat-info">
+                                    <span class="beat-number">01</span>
+                                    <span class="beat-name">H0LY</span>
+                                </div>
+                                <div class="player-container">
+                                    <audio src="beats/158%20D%23min%20H0LY%20%40Olczaak.mp3"
+                                        class="hidden-audio"></audio>
+                                    <div class="custom-player">
+                                        <button class="play-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="play-icon">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </button>
+                                        <span class="time current-time">0:00</span>
+                                        <span class="time duration-time">0:00</span>
+                                        <div class="vol-control">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07">
+                                                </path>
+                                            </svg>
+                                            <input type="range" class="volume-bar" value="70" min="0" max="100"
+                                                step="1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="range" class="progress-bar" value="0" min="0" max="100" step="1">
+                        </div>
+
+                        <!-- Beat 2 -->
+                        <div class="beat-strip">
+                            <div class="beat-strip-content">
+                                <div class="beat-info">
+                                    <span class="beat-number">02</span>
+                                    <span class="beat-name">NADE</span>
+                                </div>
+                                <div class="player-container">
+                                    <audio src="beats/D%23min%20154%20NADE%20%40Olczaak.mp3"
+                                        class="hidden-audio"></audio>
+                                    <div class="custom-player">
+                                        <button class="play-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="play-icon">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </button>
+                                        <span class="time current-time">0:00</span>
+                                        <span class="time duration-time">0:00</span>
+                                        <div class="vol-control">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07">
+                                                </path>
+                                            </svg>
+                                            <input type="range" class="volume-bar" value="70" min="0" max="100"
+                                                step="1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="range" class="progress-bar" value="0" min="0" max="100" step="1">
+                        </div>
+
+                        <!-- Beat 3 -->
+                        <div class="beat-strip">
+                            <div class="beat-strip-content">
+                                <div class="beat-info">
+                                    <span class="beat-number">03</span>
+                                    <span class="beat-name">EV!L</span>
+                                </div>
+                                <div class="player-container">
+                                    <audio src="beats/EV!L%20147%20E%20MIN%20%40OLCZAAK.mp3"
+                                        class="hidden-audio"></audio>
+                                    <div class="custom-player">
+                                        <button class="play-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="play-icon">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </button>
+                                        <span class="time current-time">0:00</span>
+                                        <span class="time duration-time">0:00</span>
+                                        <div class="vol-control">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07">
+                                                </path>
+                                            </svg>
+                                            <input type="range" class="volume-bar" value="70" min="0" max="100"
+                                                step="1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="range" class="progress-bar" value="0" min="0" max="100" step="1">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
+
+    <!-- Global ambient glow moving with mouse -->
+    <div class="ambient-cursor"></div>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
