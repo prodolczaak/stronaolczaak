@@ -1,0 +1,303 @@
+:root {
+    --bg-color: #050505;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(255, 255, 255, 0.1);
+    --glow-email: rgba(99, 102, 241, 0.4);
+    /* Indigo */
+    --glow-ig: rgba(225, 48, 108, 0.4);
+    /* Instagram pink */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+
+    /* Strict non-scrollable viewport setup */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Abstract Background Animations for Premium Aesthetic */
+.background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 350px;
+    height: 350px;
+    background: #4f46e5;
+    top: -50px;
+    left: -50px;
+}
+
+.orb-2 {
+    width: 450px;
+    height: 450px;
+    background: #9333ea;
+    bottom: -100px;
+    right: -50px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(40px, 40px) scale(1.1);
+    }
+}
+
+/* Layout container */
+.container {
+    z-index: 10;
+    width: 100%;
+    max-width: 460px;
+    padding: 20px;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 56px 40px;
+    text-align: center;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+}
+
+/* Links & Buttons Container */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Premium Buttons Layout */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 18px 24px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine Hover Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.06) 50%,
+            transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* Email Button Hover */
+.email-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -10px var(--glow-email);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.email-btn:hover .icon {
+    opacity: 1;
+    color: #a5b4fc;
+}
+
+/* Instagram Button Hover */
+.ig-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -10px var(--glow-ig);
+    border-color: rgba(225, 48, 108, 0.3);
+}
+
+.ig-btn:hover .icon {
+    opacity: 1;
+    color: #f472b6;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.beats-description {
+    margin-top: 32px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+/* Beats Section Styling */
+.beats-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    /* Allow scrolling inside the card if screen is too small,
+       while keeping the full site non-scrollable as requested */
+    max-height: 40vh;
+    overflow-y: auto;
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.beats-section::-webkit-scrollbar {
+    display: none;
+}
+
+.beat-player {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.beat-player:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.beat-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+    padding-left: 4px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Webkit audio element styling to match dark theme */
+audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.08);
+    /* Grey matching background elements */
+}
+
+/* Small Screens Adjustments */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 40px 24px;
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .btn {
+        font-size: 0.95rem;
+        padding: 16px 20px;
+    }
+}
