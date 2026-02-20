@@ -8,6 +8,7 @@
     /* Futuristic Accents */
     --accent-electric: #00e5ff;
     --accent-neon: #00f2ea;
+    --accent-loop: #bc13fe;
 
     /* Brand Colors */
     --c-email: #818cf8;
@@ -174,10 +175,9 @@ body {
     flex: 1;
     background: var(--bg-panel);
     position: relative;
-    overflow-y: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    /* Disable scrolling in the content panel */
+    display: block;
 }
 
 .content-side::-webkit-scrollbar {
@@ -187,10 +187,15 @@ body {
 .content-wrapper {
     width: 100%;
     max-width: 600px;
-    padding: 60px;
+    height: 100vh;
+    padding: 20px 60px;
+    /* Highly reduced vertical padding */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    justify-content: center;
+    gap: 20px;
+    /* Very tight gap between main sections */
 }
 
 /* Section Labels */
@@ -292,8 +297,10 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-glow);
-    padding-bottom: 16px;
-    margin-bottom: 24px;
+    padding-bottom: 10px;
+    /* Reduced */
+    margin-bottom: 16px;
+    /* Reduced */
 }
 
 .interface-header .section-label {
@@ -338,7 +345,8 @@ body {
 .beats-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
+    /* Tighter spacing between tracks */
 }
 
 .beat-strip {
@@ -353,7 +361,8 @@ body {
 }
 
 .beat-strip-content {
-    padding: 16px;
+    padding: 10px 16px;
+    /* Thinner strips */
 }
 
 .beat-strip:hover {
@@ -364,7 +373,8 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    /* Tighter internal spacing */
 }
 
 .beat-number {
@@ -374,7 +384,8 @@ body {
 }
 
 .beat-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    /* Slightly smaller font to save space */
     font-weight: 500;
     letter-spacing: 0.05em;
 }
@@ -409,6 +420,10 @@ body {
 .play-btn:hover {
     color: var(--accent-electric);
     background: transparent;
+}
+
+.loop-strip .play-btn:hover {
+    color: var(--accent-loop);
 }
 
 .play-icon {
@@ -457,9 +472,13 @@ body {
 
 .progress-bar.active {
     background: linear-gradient(to right, var(--accent-electric) var(--progress, 0%), rgba(255, 255, 255, 0.1) var(--progress, 0%));
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
     height: 8px;
-    /* Maintain height to not shift layout dynamically unless hovered */
+}
+
+.loop-strip .progress-bar.active {
+    background: linear-gradient(to right, var(--accent-loop) var(--progress, 0%), rgba(255, 255, 255, 0.1) var(--progress, 0%));
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
 }
 
 .progress-bar.active:hover {

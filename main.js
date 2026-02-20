@@ -19,22 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize duration when metadata loads
         audio.addEventListener('loadedmetadata', () => {
-            durationTimeEl.textContent = formatTime(audio.duration);
-            progressBar.max = audio.duration;
+            const effectiveDuration = audio.dataset.limit ? parseFloat(audio.dataset.limit) : audio.duration;
+            durationTimeEl.textContent = formatTime(effectiveDuration);
+            progressBar.max = effectiveDuration;
             audio.currentTime = 0;
             progressBar.value = 0;
             currentTimeEl.textContent = formatTime(0);
-            progressBar.style.setProperty('--progress', `${(0 / audio.duration) * 100 || 0}%`);
+            progressBar.style.setProperty('--progress', `${(0 / effectiveDuration) * 100 || 0}%`);
         });
 
         // Initialize duration for already loaded audio
         if (audio.readyState >= 1) {
-            durationTimeEl.textContent = formatTime(audio.duration);
-            progressBar.max = audio.duration;
+            const effectiveDuration = audio.dataset.limit ? parseFloat(audio.dataset.limit) : audio.duration;
+            durationTimeEl.textContent = formatTime(effectiveDuration);
+            progressBar.max = effectiveDuration;
             audio.currentTime = 0;
             progressBar.value = 0;
             currentTimeEl.textContent = formatTime(0);
-            progressBar.style.setProperty('--progress', `${(0 / audio.duration) * 100 || 0}%`);
+            progressBar.style.setProperty('--progress', `${(0 / effectiveDuration) * 100 || 0}%`);
         }
 
         // --- Play / Stop Logic ---
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressBar.value = 0;
                 currentTimeEl.textContent = formatTime(0);
                 progressBar.style.setProperty('--progress', `${(0 / audio.duration) * 100 || 0}%`);
+                progressBar.classList.remove('active');
                 playIcon.style.color = "inherit";
                 playIcon.style.filter = "none";
             } else { // currently paused -> PLAY
@@ -63,14 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         otherProgressBar.value = 0;
                         otherCurrentTimeEl.textContent = formatTime(0);
                         otherProgressBar.style.setProperty('--progress', `${(0 / otherAudio.duration) * 100 || 0}%`);
+                        otherProgressBar.classList.remove('active');
                         otherPlayIcon.style.color = "inherit";
                         otherPlayIcon.style.filter = "none";
                     }
                 });
 
                 audio.play();
-                playIcon.style.color = "var(--accent-electric)";
-                playIcon.style.filter = "drop-shadow(0 0 8px var(--accent-electric))";
+                const accentVar = player.closest('.beat-strip').classList.contains('loop-strip') ? 'var(--accent-loop)' : 'var(--accent-electric)';
+                playIcon.style.color = accentVar;
+                playIcon.style.filter = `drop-shadow(0 0 8px ${accentVar})`;
+                progressBar.classList.add('active');
             }
         });
 
@@ -80,27 +86,44 @@ document.addEventListener('DOMContentLoaded', () => {
             playIcon.style.filter = "none";
             audio.currentTime = 0;
             progressBar.value = 0;
+            progressBar.classList.remove('active');
             progressBar.style.setProperty('--progress', `${(0 / audio.duration) * 100 || 0}%`);
             currentTimeEl.textContent = formatTime(0);
         });
 
         // --- Progress Bar Logic ---
         audio.addEventListener('timeupdate', () => {
+            const effectiveDuration = audio.dataset.limit ? parseFloat(audio.dataset.limit) : audio.duration;
+
+            // Check for playback limit
+            if (audio.dataset.limit && audio.currentTime >= effectiveDuration) {
+                audio.pause();
+                audio.currentTime = 0;
+                progressBar.value = 0;
+                currentTimeEl.textContent = formatTime(0);
+                progressBar.style.setProperty('--progress', `0%`);
+                progressBar.classList.remove('active');
+                playIcon.style.color = "inherit";
+                playIcon.style.filter = "none";
+                return;
+            }
+
             progressBar.value = audio.currentTime;
-            const progressPercent = (audio.currentTime / audio.duration) * 100 || 0;
+            const progressPercent = (audio.currentTime / effectiveDuration) * 100 || 0;
             progressBar.style.setProperty('--progress', `${progressPercent}%`);
             currentTimeEl.textContent = formatTime(audio.currentTime);
 
             // Safety check if duration didn't load properly initially
             if (durationTimeEl.textContent === "0:00" || durationTimeEl.textContent === "NaN:NaN") {
-                durationTimeEl.textContent = formatTime(audio.duration);
-                progressBar.max = audio.duration;
+                durationTimeEl.textContent = formatTime(effectiveDuration);
+                progressBar.max = effectiveDuration;
             }
         });
 
         progressBar.addEventListener('input', () => {
             audio.currentTime = progressBar.value;
-            const progressPercent = (audio.currentTime / audio.duration) * 100 || 0;
+            const effectiveDuration = audio.dataset.limit ? parseFloat(audio.dataset.limit) : audio.duration;
+            const progressPercent = (audio.currentTime / effectiveDuration) * 100 || 0;
             progressBar.style.setProperty('--progress', `${progressPercent}%`);
             currentTimeEl.textContent = formatTime(audio.currentTime);
         });
